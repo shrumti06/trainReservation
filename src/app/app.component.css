@@ -1,0 +1,156 @@
+/* Background animation */
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  body {
+    background: linear-gradient(120deg, #84fab0, #8fd3f4, #84fab0);
+    background-size: 300% 300%;
+    animation: backgroundAnimation 15s ease infinite;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .container {
+    background: rgba(255, 225, 225, 0.85);
+    
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .header {
+    margin-bottom: 30px;
+  }
+  
+  .header h2 {
+    font-size: 2.5rem;
+    color: #007bff;
+    animation: slideIn 1.5s ease;
+  }
+  
+  .header p {
+    font-size: 1.3rem;
+    color: #6c757d;
+    animation: fadeIn 2s ease;
+  }
+  
+  /* Animation for text slide-in and fade-in */
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Input and button styling */
+  .reservation-input {
+    font-size: 1.2rem;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid #ced4da;
+    transition: border-color 0.3s;
+  }
+  
+  .reservation-input:focus {
+    border-color: #007bff;
+  }
+  
+  .reserve-button {
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    transition: background 0.3s, transform 0.3s;
+    margin-top: 15px;
+  }
+  
+  .reserve-button:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+  }
+  
+  /* Seat layout styling with animation */
+  .seat-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .seat-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .seat {
+    width: 50px;
+    height: 50px;
+    margin: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: transform 0.4s, box-shadow 0.4s;
+    cursor: pointer;
+    position: relative;
+    background: linear-gradient(to top left, #34c759, #28a745);
+    color: white;
+  }
+  
+  .seat.booked {
+    background: linear-gradient(to top left, #dc3545, #c82333);
+    color: white;
+    cursor: not-allowed;
+  }
+  
+  .seat.available:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to top left, #28a745, #218838);
+  }
+  
+  .seat::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 10%, transparent 40%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+  
+  .seat.available:hover::after {
+    opacity: 1;
+  }
+  
+  /* Add button animation */
+  @keyframes buttonBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+  
+  .reserve-button:active {
+    animation: buttonBounce 0.5s;
+  }
+  
